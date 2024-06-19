@@ -84,10 +84,18 @@ function Scrollbar:hide()
 end
 
 function Scrollbar:update()
+  local success = pcall(vim.api.nvim_win_is_valid, self.winnr)
+  if not success then
+    return self:hide()
+  end
   if not vim.api.nvim_win_is_valid(self.winnr) then
     return self:hide()
   end
 
+  local success = pcall(vim.api.nvim_win_is_valid, self.winnr)
+  if not success then
+    return self:hide()
+  end
   local pos = vim.api.nvim_win_get_position(self.winnr)
 
   local dim = {

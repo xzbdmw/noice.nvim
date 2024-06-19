@@ -89,7 +89,7 @@ M.defaults = {
     view = "split",
   },
   messages = {
-    view = "split",
+    view = "vsplit",
     enter = true,
   },
   vsplit = {

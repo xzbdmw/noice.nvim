@@ -247,6 +247,12 @@ function NuiView:update_layout()
 end
 
 function NuiView:is_mounted()
+  if type(self._nui.bufnr) ~= "number" then
+    return false
+  end
+  if type(self._nui.winid) ~= "number" then
+    return false
+  end
   if self._nui and self._nui.bufnr and not vim.api.nvim_buf_is_valid(self._nui.bufnr) then
     self._nui.bufnr = nil
   end

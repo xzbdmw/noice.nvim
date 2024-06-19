@@ -113,8 +113,9 @@ M.presets = {
           conceal = true,
           opts = {
             relative = "cursor",
+            zindex = 21,
             size = { min_width = 20 },
-            position = { row = -3, col = 0 },
+            position = { row = -2, col = -3 },
           },
         },
       },

@@ -65,7 +65,11 @@ function NoiceText:highlight(bufnr, ns_id, linenr, byte_start)
       range[2] = byte_start + self.extmark.col - 1
     end
     if Treesitter.has_lang(self.extmark.lang) then
-      Treesitter.highlight(bufnr, ns_id, range, self.extmark.lang)
+      vim.schedule(function()
+        pcall(function()
+          Treesitter.highlight(bufnr, ns_id, range, self.extmark.lang)
+        end)
+      end)
     else
       Syntax.highlight(bufnr, ns_id, range, self.extmark.lang)
     end
