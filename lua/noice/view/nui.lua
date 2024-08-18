@@ -35,6 +35,9 @@ function NuiView:autohide()
 end
 
 function NuiView:update_options()
+  if self._opts.position.col == nil then
+    return
+  end
   self._opts = vim.tbl_deep_extend("force", {}, {
     buf_options = {
       buftype = "nofile",
