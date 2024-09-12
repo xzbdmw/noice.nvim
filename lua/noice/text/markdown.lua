@@ -250,7 +250,7 @@ end
 function M.horizontal_line(message)
   message:append(NoiceText("", {
     virt_text_win_col = 0,
-    virt_text = { { string.rep("─", vim.go.columns), "@punctuation.special.markdown" } },
+    virt_text = { { string.rep("─", vim.go.columns), "hlchunk" } },
     priority = 100,
   }))
 end
