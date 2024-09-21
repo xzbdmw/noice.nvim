@@ -284,6 +284,9 @@ function NuiView:show()
     self:mount()
   end
 
+  if not vim.api.nvim_buf_is_valid(self._nui.bufnr) then
+    return
+  end
   vim.bo[self._nui.bufnr].modifiable = true
   self:render(self._nui.bufnr)
   vim.bo[self._nui.bufnr].modifiable = false
