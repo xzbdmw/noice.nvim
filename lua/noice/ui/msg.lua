@@ -87,7 +87,7 @@ function M.on_show(event, kind, content, replace_last)
     return M.on_confirm(event, kind, content)
   end
 
-  if State.skip(event, kind, content, replace_last) and event ~= "msg_show" then
+  if vim.g.skip_noice or State.skip(event, kind, content, replace_last) and event ~= "msg_show" then
     return
   end
 
