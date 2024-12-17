@@ -96,13 +96,13 @@ function NuiView:create()
 
   self:mount()
   self:update_layout()
-  if self._opts.scrollbar ~= false then
-    self._scroll = Scrollbar({
-      winnr = self._nui.winid,
-      padding = Util.nui.normalize_padding(self._opts.border),
-    })
-    self._scroll:mount()
-  end
+  -- if self._opts.scrollbar ~= false then
+  --   self._scroll = Scrollbar({
+  --     winnr = self._nui.winid,
+  --     padding = Util.nui.normalize_padding(self._opts.border),
+  --   })
+  --   self._scroll:mount()
+  -- end
   self._loading = false
 end
 

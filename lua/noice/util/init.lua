@@ -61,9 +61,10 @@ end
 ---@param fn fun():any
 function M.ignore_events(fn)
   local ei = vim.go.eventignore
-  vim.go.eventignore = "all"
-  local ret = fn()
-  vim.go.eventignore = ei
+  local ok, ret = pcall(fn)
+  if not ok then
+    print(debug.traceback())
+  end
   return ret
 end
 
