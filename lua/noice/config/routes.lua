@@ -42,15 +42,19 @@ function M.defaults()
       filter = { event = "cmdline" },
     },
     {
+      view = "mini",
+      filter = {
+        any = {
+          { event = "msg_show", kind = "confirm_sub", find = "replace" },
+        },
+      },
+    },
+    {
       view = "confirm",
       filter = {
         any = {
           { event = "msg_show", kind = "confirm" },
           { event = "msg_show", kind = "confirm_sub" },
-          -- { event = "msg_show", kind = { "echo", "echomsg", "" }, before = true },
-          -- { event = "msg_show", kind = { "echo", "echomsg" }, instant = true },
-          -- { event = "msg_show", find = "E325" },
-          -- { event = "msg_show", find = "Found a swap file" },
         },
       },
     },
